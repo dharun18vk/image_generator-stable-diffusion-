@@ -2,6 +2,176 @@
 A web interface for Stable Diffusion, implemented using Gradio library.
 
 ![](screenshot.png)
+# 🖼️ Stable Diffusion WebUI - Local Image Generator
+
+A full offline image generation WebUI using **Stable Diffusion**. No internet, no API keys, just your local model and GPU.
+
+> 🔒 Offline-capable  
+> ⚡ GPU-accelerated  
+> 🧩 LoRA & VAE supported  
+> 🛠️ Built with Gradio + Stable Diffusion  
+
+---
+
+## 📁 Project Directory Structure
+
+```bash
+stable-diffusion-webui/
+├── models/
+│   └── Stable-diffusion/
+│       └── your_model.safetensors
+├── launch.py
+├── webui.bat
+├── requirements.txt
+├── extensions/
+├── configs/
+└── ...
+```
+
+---
+
+## 💻 Prerequisites
+
+Ensure the following are **installed** before continuing:
+
+### ✅ Required Software
+
+| Tool                       | Version / Notes                           |
+|----------------------------|-------------------------------------------|
+| **Python**                 | 3.10.6 **(Strictly this version)**        |
+| **Git**                    | Latest                                    |
+| **Visual Studio Build Tools** | With C++ compilers (for dependencies) |
+| **NVIDIA GPU Driver**      | Latest with CUDA 11.7+                    |
+
+---
+
+## 📦 Install Required Python Packages
+
+### Option 1: Using `requirements.txt`
+
+```bash
+pip install -r requirements.txt
+```
+
+### Option 2: Manual Installation (if requirements.txt not available)
+
+```bash
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+pip install transformers diffusers xformers accelerate
+pip install gradio numpy pillow tqdm
+```
+
+> If you get dependency issues, use:
+```bash
+pip install --upgrade pip setuptools
+```
+
+---
+
+## ⚙️ Set Python Path (Windows PowerShell)
+
+If you have multiple Python versions, set the correct one for terminal:
+
+```powershell
+$Env:Path="C:\Users\Dharun\AppData\Local\Programs\Python\Python310;$Env:Path"
+```
+
+> Tip: You can put this in a `.ps1` or `.bat` script for reuse.
+
+---
+
+## 🚀 Running the WebUI
+
+1. Place your `.safetensors` model inside:
+   ```
+   models/Stable-diffusion/
+   ```
+
+2. Launch the app:
+
+```powershell
+$Env:Path="C:\Users\Dharun\AppData\Local\Programs\Python\Python310;$Env:Path"
+python launch.py
+```
+
+3. Open your browser at:
+```
+http://127.0.0.1:7860
+```
+
+---
+
+## 🧠 Model Compatibility
+
+This setup supports:
+
+- `.safetensors` format (preferred for safety)
+- Stable Diffusion 1.5, 2.1, SDXL (if supported by codebase)
+- LoRA, VAE files, and ControlNet (with respective extensions)
+
+> Models go inside `models/Stable-diffusion/`.
+
+---
+
+## 🧪 Sample Prompt
+
+Try:
+```txt
+a highly detailed oil painting of a futuristic cyberpunk warrior, glowing neon armor, 8K, dramatic lighting
+```
+
+Check the `outputs/` or specified folder for generated images.
+
+---
+
+## 🧰 Optional Features
+
+- ✅ LoRA support – place LoRA models inside `models/Lora/`
+- ✅ VAE support – place VAE files inside `models/VAE/`
+- ✅ NSFW/SFW filter – modify launch args or config
+- ✅ ControlNet – install extension under `extensions/`
+
+---
+
+## 🔧 Troubleshooting
+
+| Problem                         | Fix                                                                 |
+|----------------------------------|----------------------------------------------------------------------|
+| `torch not found`                | Reinstall with CUDA: `pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121` |
+| `xformers not installed`         | Run: `pip install xformers`                                         |
+| WebUI not opening                | Ensure browser opens `http://127.0.0.1:7860`                         |
+| GPU not detected                 | Check CUDA drivers, reinstall PyTorch with GPU support              |
+| Wrong Python version             | Use the `$Env:Path` method shown above                              |
+
+---
+
+## 🔒 Security Notes
+
+- Keep `.safetensors` models from trusted sources only.
+- Avoid running third-party `.ckpt` models unless verified.
+
+---
+
+## 📄 License
+
+This project is based on open-source repositories. Refer to their respective licenses (MIT/Apache 2.0).
+
+You are free to modify, extend, and distribute **your version** of this setup.
+
+---
+
+## 📬 Credits & References
+
+- [Automatic1111 WebUI](https://github.com/AUTOMATIC1111/stable-diffusion-webui)
+- [Hugging Face - Diffusers](https://huggingface.co/docs/diffusers/index)
+- [CompVis Stable Diffusion](https://github.com/CompVis/stable-diffusion)
+
+---
+
+## 🙋‍♂️ Author
+
+Made with 💻 by **Dharun**  
+> Modular AI, Offline Stable Diffusion, and Full-Stack Apps
 
 ## Features
 [Detailed feature showcase with images](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features):
